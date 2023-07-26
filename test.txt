@@ -1,0 +1,17 @@
+pacmd load-module module-null-sink sink_name=WDNR
+pacmd load-module module-null-sink sink_name=KISS
+pacmd load-module module-null-sink sink_name=WDUS
+pacmd load-module module-null-sink sink_name=WDNRST
+pacmd update-sink-proplist WDNR device.description=WDNR
+pacmd update-sink-proplist WDNRST device.description=WDNRST
+pacmd update-sink-proplist KISS device.description=KISS
+pacmd update-sink-proplist WDUS device.description=WDUS
+pacmd load-module module-loopback sink=WDNR
+pacmd load-module module-loopback sink=WDNRST
+pacmd load-module module-loopback sink=KISS
+pacmd load-module module-loopback sink=WDUS
+pacmd update-source-proplist WDNR.monitor device.description=WDNRMonitor
+pacmd update-source-proplist WDNRST.monitor device.description=WDNRSTMonitor
+pacmd update-source-proplist KISS.monitor device.description=KISSMonitor
+pacmd update-source-proplist WDUS.monitor device.description=WDUSMonitor
+
